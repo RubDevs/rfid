@@ -5,13 +5,12 @@ async function readTag() {
       try {
         await reader.scan();
         reader.onreading = event => {
-          id.value = "hola, entro al evento"
           const decoder = new TextDecoder();
           for (const record of event.message.records) {
             console.log("Record type:  " + record.recordType);
             console.log("MIME type:    " + record.mediaType);
             console.log("=== data ===\n" + decoder.decode(record.data));
-            id.value = record.id
+            id.value = `${record.id}`
           }
         }
       } catch(error) {
