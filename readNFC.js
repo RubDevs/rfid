@@ -10,7 +10,7 @@ async function readTag() {
             console.log("Record type:  " + record.recordType);
             console.log("MIME type:    " + record.mediaType);
             console.log("=== data ===\n" + decoder.decode(record.data));
-            id.value = `Id: ${record.id}`
+            id.value = "=== data ===\n" + decoder.decode(record.data)
           }
         }
       } catch(error) {
