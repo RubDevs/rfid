@@ -6,6 +6,7 @@ async function readTag() {
         await reader.scan();
         reader.onreading = event => {
           const decoder = new TextDecoder();
+          id.value = event.message.records || "Vacio"
           for (const record of event.message.records) {
             console.log("Record type:  " + record.recordType);
             console.log("MIME type:    " + record.mediaType);
